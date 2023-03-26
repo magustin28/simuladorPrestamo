@@ -1,7 +1,6 @@
 alert('Hola Banker!!\nBienvenido al Banco Bank!\n(Aceptar para continuar)');
 
 let servicio;
-let mensajeSaludo = 'Gracias por visitarnos.\nEsperamos que vuelta pronto!';
 
 do{
     servicio = parseInt(prompt('Por cual servicio quiere consultar\n1-Cuentas (Próximamente)\n2-Tarjetas de Crédito (Próximamente)\n3-Préstamos\n0-Para salir'));
@@ -20,6 +19,12 @@ let nivelIngresos = 0;
 let montoPrestamo = 0;
 let cantidadCuotas = 0;
 let valorCuota = 0;
+let tasa = 0.80;
+let tasaSeguro = 0.01;
+let interes = 0;
+let seguro = 0;
+let totalAPagar = 0;
+let cft = 0;
 
 if(servicio == 3){
 
@@ -58,16 +63,23 @@ if(servicio == 3){
         let nivelIngresosF = nivelIngresos.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
         let montoPrestamoF = montoPrestamo.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
 
-        alert('Información ingresada:\n* Edad: ' + edad + ' años\n* Nivel de Ingresos: ' + nivelIngresosF + '\n* Monto del préstamo a solicitar: ' + montoPrestamoF + '\n* Cantidad de cuotas a solicitar: ' + cantidadCuotas + ' cuotas\n Aceptar para simular el préstamo');
+        alert('Información ingresada:\n* Edad: ' + edad + ' años\n* Nivel de Ingresos: ' + nivelIngresosF + '\n* Monto del préstamo a solicitar: ' + montoPrestamoF + '\n* Cantidad de cuotas a solicitar: ' + cantidadCuotas + ' cuotas\nCondiciones del préstamo\nTNA: ' + (tasa * 100) + '%\nSeguro: ' + (tasaSeguro * 100) + '% sobre el capital\n(Aceptar para simular el préstamo)');
 
-        let valorCuota = montoPrestamo / cantidadCuotas;
+        let interes = montoPrestamo * tasa / 12 * cantidadCuotas;
+        let seguro = montoPrestamo * tasaSeguro;
+        let totalAPagar = montoPrestamo + interes + seguro;
+        let valorCuota = totalAPagar / cantidadCuotas;
+        let cft = (((totalAPagar/montoPrestamo)-1) / cantidadCuotas * 12 * 100).toFixed(2);
+
+        let interesF = interes.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
+        let seguroF = seguro.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
+        let totalAPagarF = totalAPagar.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
         let valorCuotaF = valorCuota.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
-                
-        alert('Le detallamos la simulación de su préstamo:\n* Edad: ' + edad + ' años\n* Monto del préstamo a solicitar: ' + montoPrestamoF + '\n* Tiene que ingresar ' + cantidadCuotas + ' cuotas de ' + valorCuotaF);
+                     
+        alert('Le detallamos la simulación de su préstamo:\n* Edad: ' + edad + ' años\n* Monto del préstamo a solicitar: ' + montoPrestamoF + '\n* Tiene que ingresar ' + cantidadCuotas + ' cuotas de ' + valorCuotaF + '.\nCapital: '+ montoPrestamoF + '\nInteres: ' + interesF + '\nSeguro: ' + seguroF + '\nImporte total: ' + totalAPagarF + '\nCFT: ' + cft +'%');
     }
 }
-
-alert(mensajeSaludo);
+alert('Gracias por visitarnos.\nEsperamos que vuelta pronto!');
 
 
 /*
