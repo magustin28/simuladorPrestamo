@@ -33,7 +33,7 @@ if(servicio == 3){
     do{
         edad = parseInt(prompt('Edad\nDebe tener como mímimo 18 años de edad. Si su edad es inferior a 18, presione 0 (cero) para salir'));
         if(edad !== 0 && (isNaN(edad) || edad < 18 || edad >= 100)){
-            alert('Ingrese una edad valida.'); 
+            alert('Ingrese una edad valida'); 
         }
     }while(edad !== 0 && (isNaN(edad) || edad < 18 || edad >= 100));
 
