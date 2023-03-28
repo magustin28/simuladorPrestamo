@@ -33,7 +33,7 @@ if(servicio == 3){
     do{
         edad = parseInt(prompt('Edad\nDebe tener como mímimo 18 años de edad. Si su edad es inferior a 18, presione 0 (cero) para salir'));
         if(edad !== 0 && (isNaN(edad) || edad < 18 || edad >= 100)){
-            alert('Ingrese una edad valida'); 
+            alert('Ingrese una edad valida.'); 
         }
     }while(edad !== 0 && (isNaN(edad) || edad < 18 || edad >= 100));
 
@@ -42,21 +42,21 @@ if(servicio == 3){
         do{
             nivelIngresos = parseFloat(prompt('Nivel de Ingresos'));
             if(isNaN(nivelIngresos) || (nivelIngresos <= 0) || (nivelIngresos >= 1000001)){
-                alert('Ingrese un importe valido: mayor a $0 (cero) y menor a $1.000.000.'); 
+                alert('Ingrese un importe valido: mayor a $0 (cero) y menor a $1.000.000'); 
             }
         }while(isNaN(nivelIngresos) || (nivelIngresos <= 0) || (nivelIngresos >= 1000001));
 
         do{
             montoPrestamo = parseFloat(prompt('Monto del préstamo a solicitar\nMonto máximo a solicitar: $1.000.000'));
             if(isNaN(montoPrestamo) || (montoPrestamo <= 0) || (montoPrestamo >= 1000001)){
-                alert('Ingrese un importe valido: mayor a $0 (cero) y menor a $1.000.000.'); 
+                alert('Ingrese un importe valido: mayor a $0 (cero) y menor a $1.000.000'); 
             }
         }while(isNaN(montoPrestamo) || (montoPrestamo <= 0) || (montoPrestamo >= 1000001));
 
         do{
-            cantidadCuotas = parseInt(prompt('Cantidad de cuotas a solicitar.\nCantidad máxima de cuotas a solicitar: 12.'));
+            cantidadCuotas = parseInt(prompt('Cantidad de cuotas a solicitar.\nCantidad máxima de cuotas a solicitar: 12'));
             if(isNaN(cantidadCuotas) || (cantidadCuotas <= 0) || (cantidadCuotas >= 13)){
-                alert('Ingrese una cantidad de cuotas validas: mayor a 0 (cero) y hasta 12.'); 
+                alert('Ingrese una cantidad de cuotas validas: mayor a 0 (cero) y hasta 12'); 
             }
         }while(isNaN(cantidadCuotas) || (cantidadCuotas <= 0) || (cantidadCuotas >= 13));
 
